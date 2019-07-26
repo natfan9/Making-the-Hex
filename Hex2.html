@@ -23,55 +23,56 @@
 		<text class="label" x="375" y="255" text-anchor="middle" dominant-baseline="middle">MEX (pens)</text>-->
 		<svg class="buttons" x="0" y="100" width="640" height="200">
 			<rect class="teamawin" height="200" width="200" x="0" y="0" fill="gray" onmousedown="looper(1)"></rect>
-			<text class="teamawinlabel" x="100" y="100" text-anchor="middle" dominant-baseline="middle">United States win</text>
+			<text class="buttonlabel teamawinlabel" x="100" y="100" text-anchor="middle" dominant-baseline="middle">United States win</text>
 			<rect class="teambwin" height="200" width="200" x="440" y="0" fill="gray" onmousedown="looper(2)"></rect>
-			<text class="teambwinlabel" x="540" y="100" text-anchor="middle" dominant-baseline="middle">Mexico win</text>
+			<text class="buttonlabel teambwinlabel" x="540" y="100" text-anchor="middle" dominant-baseline="middle">Mexico win</text>
 			<rect class="draw" height="200" width="200" x="220" y="0" fill="gray" onmousedown="looper(3)"></rect>
-			<text class="drawlabel" x="320" y="100" text-anchor="middle" dominant-baseline="middle">Draw</text>
+			<text class="buttonlabel drawlabel" x="320" y="100" text-anchor="middle" dominant-baseline="middle">Draw</text>
 		<!--<rect class="teamapso" height="40" width="200" x="0" y="160" fill="gray" onmousedown="looper(4)"></rect>
-			<text class="teamapsolabel" x="100" y="180" text-anchor="middle" dominant-baseline="middle">United States (pens)</text>
+			<text class="buttonlabel teamapsolabel" x="100" y="180" text-anchor="middle" dominant-baseline="middle">United States (pens)</text>
 			<rect class="teambpso" height="40" width="200" x="440" y="160" fill="gray" onmousedown="looper(5)"></rect>
-			<text class="teambpsolabel" x="540" y="180" text-anchor="middle" dominant-baseline="middle">Mexico (pens)</text>-->
+			<text class="buttonlabel teambpsolabel" x="540" y="180" text-anchor="middle" dominant-baseline="middle">Mexico (pens)</text>-->
 		</svg>
 		<svg class="leaderboard" x="700" y="0" width="260" height="500">
-			<text class="team1" x="0" y="50">Mexico</text>
-			<text class="team2" x="0" y="70">United States</text>
-			<text class="team3" x="0" y="90">Costa Rica</text>
-			<text class="team4" x="0" y="110">Jamaica</text>
-			<text class="team5" x="0" y="130">Honduras</text>
-			<text class="team6" x="0" y="150">El Salvador</text>
-			<text class="team7" x="0" y="170">Panama</text>
-			<text class="team8" x="0" y="190">Canada</text>
-			<text class="team9" x="0" y="210">Curacao</text>
-			<text class="team10" x="0" y="230">Trinidad and Tobago</text>
-			<text class="team11" x="0" y="250">Haiti</text>
+			<text class="leaderboard team1" x="0" y="50">Mexico</text>
+			<text class="leaderboard team2" x="0" y="70">United States</text>
+			<text class="leaderboard team3" x="0" y="90">Costa Rica</text>
+			<text class="leaderboard team4" x="0" y="110">Jamaica</text>
+			<text class="leaderboard team5" x="0" y="130">Honduras</text>
+			<text class="leaderboard team6" x="0" y="150">El Salvador</text>
+			<text class="leaderboard team7" x="0" y="170">Panama</text>
+			<text class="leaderboard team8" x="0" y="190">Canada</text>
+			<text class="leaderboard team9" x="0" y="210">Curacao</text>
+			<text class="leaderboard team10" x="0" y="230">Trinidad and Tobago</text>
+			<text class="leaderboard team11" x="0" y="250">Haiti</text>
 		</svg>
 	</svg>
 	<script>
-	var countries = ["Mexico","United States","Costa Rica","Jamaica","Honduras","El Salvador","Panama","Canada","Curacao","Trinidad and Tobago","Haiti","Antigua and Barbuda","Bermuda","Guyana","Dominican Republic","Cuba","Montserrat","Aruba","Saint Lucia","Uruguay","Argentina"];
-		
+	var countries = ["Mexico","United States","Costa Rica","Jamaica","Honduras","El Salvador","Panama","Canada","Curacao","Haiti","Trinidad and Tobago","Antigua and Barbuda","Bermuda","Guyana","Dominican Republic","Cuba","Montserrat","Aruba","Saint Lucia","Uruguay","Argentina"];
+	
+	//Updated to reflect July 2019 rankings	
 	var fwrPoints = {
-		Mexico: 1557,
-		"United States": 1495,
-		"Costa Rica": 1453,
-		Jamaica: 1397,
-		Honduras: 1368,
+		Mexico: 1604,
+		"United States": 1548,
+		"Costa Rica": 1445,
+		Jamaica: 1425,
+		Honduras: 1350,
 		"El Salvador": 1342,
-		Panama: 1322,
-		Canada: 1314,
-		Curacao: 1302,
-		"Trinidad and Tobago": 1260,
-		Haiti: 1219,
+		Panama: 1331,
+		Canada: 1312,
+		Curacao: 1309,
+		Haiti: 1288,
+		"Trinidad and Tobago": 1226,
 		"Antigua and Barbuda": 1136,
-		Bermuda: 964,
-		Guyana: 954,
+		Bermuda: 972,
+		Guyana: 953,
 		"Dominican Republic": 1028,
-		Cuba: 961,
+		Cuba: 950,
 		Montserrat: 895,
 		Aruba: 909,
 		"Saint Lucia": 975,
-		Uruguay: 1615,
-		Argentina: 1582,
+		Uruguay: 1637,
+		Argentina: 1610,
 		key: function(n) {
         	return this[Object.keys(this)[n]];
     	}
@@ -202,6 +203,30 @@
 	var score = d3.select("text.scores");
 		
 	score.text(games.key(0).home + "'s score is " + Math.round(fwrPoints[games.key(0).home]) + ". " + games.key(0).away + "'s score is " + Math.round(fwrPoints[games.key(0).away]) + ".");
+		
+	var lb1 = d3.select("text.team1");
+	var lb2 = d3.select("text.team2");
+	var lb3 = d3.select("text.team3");
+	var lb4 = d3.select("text.team4");
+	var lb5 = d3.select("text.team5");
+	var lb6 = d3.select("text.team6");
+	var lb7 = d3.select("text.team7");
+	var lb8 = d3.select("text.team8");
+	var lb9 = d3.select("text.team9");
+	var lb10 = d3.select("text.team10");
+	var lb11 = d3.select("text.team11");
+		
+	lb1.text(countries[0] + ": " + Math.round(fwrPoints["Mexico"]));
+	lb2.text(countries[1] + ": " + Math.round(fwrPoints["United States"]));
+	lb3.text(countries[2] + ": " + Math.round(fwrPoints["Costa Rica"]));
+	lb4.text(countries[3] + ": " + Math.round(fwrPoints["Jamaica"]));
+	lb5.text(countries[4] + ": " + Math.round(fwrPoints["Honduras"]));
+	lb6.text(countries[5] + ": " + Math.round(fwrPoints["El Salvador"]));
+	lb7.text(countries[6] + ": " + Math.round(fwrPoints["Panama"]));
+	lb8.text(countries[7] + ": " + Math.round(fwrPoints["Canada"]));
+	lb9.text(countries[8] + ": " + Math.round(fwrPoints["Curacao"]));
+	lb10.text(countries[9] + ": " + Math.round(fwrPoints["Haiti"]));
+	lb11.text(countries[10] + ": " + Math.round(fwrPoints["Trinidad and Tobago"]));
 	/**
 	function testFunction(resultindex){
 		if (resultindex == 1) {
@@ -311,7 +336,10 @@
 		}
 	};**/
 	
-	var n = Object.keys(games).length - 1;
+	var n = Object.keys(games).length;
+	if (n === 5) {
+		console.log(games);
+	}
 	console.log(n);
 		if (n > 0) {
 			function looper(resultindex) {
@@ -320,13 +348,14 @@
 						if (n > 0) {
 							fwrPoints[games.key(Object.keys(games).length - n).away] = fwrPoints[games.key(Object.keys(games).length - n).away] + games.key(Object.keys(games).length - n).multiplier * (0 - (1/(Math.pow(10,-(fwrPoints[games.key(Object.keys(games).length - n).away]-fwrPoints[games.key(Object.keys(games).length - n).home])/600)+1)));
 							fwrPoints[games.key(Object.keys(games).length - n).home] = fwrPoints[games.key(Object.keys(games).length - n).home] + games.key(Object.keys(games).length - n).multiplier * (1 - (1/(Math.pow(10,-(fwrPoints[games.key(Object.keys(games).length - n).home]-fwrPoints[games.key(Object.keys(games).length - n).away])/600)+1)));
-							score.text(games.key(Object.keys(games).length - n).home + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n).home]) + ". " + games.key(Object.keys(games).length - n).away + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n).away]) + ".");
-							text.text(games.key(Object.keys(games).length - n).gameline() + " - " + games.key(Object.keys(games).length - n).gametype);
-							homewin.text(games.key(Object.keys(games).length - n).home + " win");
-							awaywin.text(games.key(Object.keys(games).length - n).away + " win");
-							homepens.text(games.key(Object.keys(games).length - n).home + " (pens)");
-							awaypens.text(games.key(Object.keys(games).length - n).away + " (pens)");
-							date.text(games.key(Object.keys(games).length - n).date);
+							leaderboardUpdate();
+							score.text(games.key(Object.keys(games).length - n + 1).home + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n + 1).home]) + ". " + games.key(Object.keys(games).length - n + 1).away + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n + 1).away]) + ".");
+							text.text(games.key(Object.keys(games).length - n + 1).gameline() + " - " + games.key(Object.keys(games).length - n + 1).gametype);
+							homewin.text(games.key(Object.keys(games).length - n + 1).home + " win");
+							awaywin.text(games.key(Object.keys(games).length - n + 1).away + " win");
+							homepens.text(games.key(Object.keys(games).length - n + 1).home + " (pens)");
+							awaypens.text(games.key(Object.keys(games).length - n + 1).away + " (pens)");
+							date.text(games.key(Object.keys(games).length - n + 1).date);
 							console.log(n);
 							n--;
 							console.log(n);
@@ -336,13 +365,14 @@
 						if (n > 0) {
 							fwrPoints[games.key(Object.keys(games).length - n).away] = fwrPoints[games.key(Object.keys(games).length - n).away] + games.key(Object.keys(games).length - n).multiplier * (1 - (1/(Math.pow(10,-(fwrPoints[games.key(Object.keys(games).length - n).away]-fwrPoints[games.key(Object.keys(games).length - n).home])/600)+1)));
 							fwrPoints[games.key(Object.keys(games).length - n).home] = fwrPoints[games.key(Object.keys(games).length - n).home] + games.key(Object.keys(games).length - n).multiplier * (0 - (1/(Math.pow(10,-(fwrPoints[games.key(Object.keys(games).length - n).home]-fwrPoints[games.key(Object.keys(games).length - n).away])/600)+1)));
-							score.text(games.key(Object.keys(games).length - n).home + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n).home]) + ". " + games.key(Object.keys(games).length - n).away + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n).away]) + ".");
-							text.text(games.key(Object.keys(games).length - n).gameline() + " - " + games.key(Object.keys(games).length - n).gametype);
-							homewin.text(games.key(Object.keys(games).length - n).home + " win");
-							awaywin.text(games.key(Object.keys(games).length - n).away + " win");
-							homepens.text(games.key(Object.keys(games).length - n).home + " (pens)");
-							awaypens.text(games.key(Object.keys(games).length - n).away + " (pens)");
-							date.text(games.key(Object.keys(games).length - n).date);
+							leaderboardUpdate();
+							score.text(games.key(Object.keys(games).length - n + 1).home + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n + 1).home]) + ". " + games.key(Object.keys(games).length - n + 1).away + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n + 1).away]) + ".");
+							text.text(games.key(Object.keys(games).length - n + 1).gameline() + " - " + games.key(Object.keys(games).length - n + 1).gametype);
+							homewin.text(games.key(Object.keys(games).length - n + 1).home + " win");
+							awaywin.text(games.key(Object.keys(games).length - n + 1).away + " win");
+							homepens.text(games.key(Object.keys(games).length - n + 1).home + " (pens)");
+							awaypens.text(games.key(Object.keys(games).length - n + 1).away + " (pens)");
+							date.text(games.key(Object.keys(games).length - n + 1).date);
 							console.log(n);
 							n--;
 							console.log(n);
@@ -352,13 +382,14 @@
 						if (n > 0) {
 							fwrPoints[games.key(Object.keys(games).length - n).away] = fwrPoints[games.key(Object.keys(games).length - n).away] + games.key(Object.keys(games).length - n).multiplier * (0.5 - (1/(Math.pow(10,-(fwrPoints[games.key(Object.keys(games).length - n).away]-fwrPoints[games.key(Object.keys(games).length - n).home])/600)+1)));
 							fwrPoints[games.key(Object.keys(games).length - n).home] = fwrPoints[games.key(Object.keys(games).length - n).home] + games.key(Object.keys(games).length - n).multiplier * (0.5 - (1/(Math.pow(10,-(fwrPoints[games.key(Object.keys(games).length - n).home]-fwrPoints[games.key(Object.keys(games).length - n).away])/600)+1)));
-							score.text(games.key(Object.keys(games).length - n).home + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n).home]) + ". " + games.key(Object.keys(games).length - n).away + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n).away]) + ".");
-							text.text(games.key(Object.keys(games).length - n).gameline() + " - " + games.key(Object.keys(games).length - n).gametype);
-							homewin.text(games.key(Object.keys(games).length - n).home + " win");
-							awaywin.text(games.key(Object.keys(games).length - n).away + " win");
-							homepens.text(games.key(Object.keys(games).length - n).home + " (pens)");
-							awaypens.text(games.key(Object.keys(games).length - n).away + " (pens)");
-							date.text(games.key(Object.keys(games).length - n).date);
+							leaderboardUpdate();
+							score.text(games.key(Object.keys(games).length - n + 1).home + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n + 1).home]) + ". " + games.key(Object.keys(games).length - n + 1).away + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n + 1).away]) + ".");
+							text.text(games.key(Object.keys(games).length - n + 1).gameline() + " - " + games.key(Object.keys(games).length - n + 1).gametype);
+							homewin.text(games.key(Object.keys(games).length - n + 1).home + " win");
+							awaywin.text(games.key(Object.keys(games).length - n + 1).away + " win");
+							homepens.text(games.key(Object.keys(games).length - n + 1).home + " (pens)");
+							awaypens.text(games.key(Object.keys(games).length - n + 1).away + " (pens)");
+							date.text(games.key(Object.keys(games).length - n + 1).date);
 							console.log(n);
 							n--;
 							console.log(n);
@@ -368,13 +399,14 @@
 						if (n > 0) {
 							fwrPoints[games.key(Object.keys(games).length - n).away] = fwrPoints[games.key(Object.keys(games).length - n).away] + games.key(Object.keys(games).length - n).multiplier * (0.5 - (1/(Math.pow(10,-(fwrPoints[games.key(Object.keys(games).length - n).away]-fwrPoints[games.key(Object.keys(games).length - n).home])/600)+1)));
 							fwrPoints[games.key(Object.keys(games).length - n).home] = fwrPoints[games.key(Object.keys(games).length - n).home] + games.key(Object.keys(games).length - n).multiplier * (0.75 - (1/(Math.pow(10,-(fwrPoints[games.key(Object.keys(games).length - n).home]-fwrPoints[games.key(Object.keys(games).length - n).away])/600)+1)));
-							score.text(games.key(Object.keys(games).length - n).home + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n).home]) + ". " + games.key(Object.keys(games).length - n).away + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n).away]) + ".");
-							text.text(games.key(Object.keys(games).length - n).gameline() + " - " + games.key(Object.keys(games).length - n).gametype);
-							homewin.text(games.key(Object.keys(games).length - n).home + " win");
-							awaywin.text(games.key(Object.keys(games).length - n).away + " win");
-							homepens.text(games.key(Object.keys(games).length - n).home + " (pens)");
-							awaypens.text(games.key(Object.keys(games).length - n).away + " (pens)");
-							date.text(games.key(Object.keys(games).length - n).date);
+							leaderboardUpdate();
+							score.text(games.key(Object.keys(games).length - n + 1).home + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n + 1).home]) + ". " + games.key(Object.keys(games).length - n + 1).away + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n + 1).away]) + ".");
+							text.text(games.key(Object.keys(games).length - n + 1).gameline() + " - " + games.key(Object.keys(games).length - n + 1).gametype);
+							homewin.text(games.key(Object.keys(games).length - n + 1).home + " win");
+							awaywin.text(games.key(Object.keys(games).length - n + 1).away + " win");
+							homepens.text(games.key(Object.keys(games).length - n + 1).home + " (pens)");
+							awaypens.text(games.key(Object.keys(games).length - n + 1).away + " (pens)");
+							date.text(games.key(Object.keys(games).length - n + 1).date);
 							console.log(n);
 							n--;
 							console.log(n);
@@ -384,13 +416,14 @@
 						if (n > 0) {
 							fwrPoints[games.key(Object.keys(games).length - n).away] = fwrPoints[games.key(Object.keys(games).length - n).away] + games.key(Object.keys(games).length - n).multiplier * (0.75 - (1/(Math.pow(10,-(fwrPoints[games.key(Object.keys(games).length - n).away]-fwrPoints[games.key(Object.keys(games).length - n).home])/600)+1)));
 							fwrPoints[games.key(Object.keys(games).length - n).home] = fwrPoints[games.key(Object.keys(games).length - n).home] + games.key(Object.keys(games).length - n).multiplier * (0.5 - (1/(Math.pow(10,-(fwrPoints[games.key(Object.keys(games).length - n).home]-fwrPoints[games.key(Object.keys(games).length - n).away])/600)+1)));
-							score.text(games.key(Object.keys(games).length - n).home + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n).home]) + ". " + games.key(Object.keys(games).length - n).away + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n).away]) + ".");
-							text.text(games.key(Object.keys(games).length - n).gameline() + " - " + games.key(Object.keys(games).length - n).gametype);
-							homewin.text(games.key(Object.keys(games).length - n).home + " win");
-							awaywin.text(games.key(Object.keys(games).length - n).away + " win");
-							homepens.text(games.key(Object.keys(games).length - n).home + " (pens)");
-							awaypens.text(games.key(Object.keys(games).length - n).away + " (pens)");
-							date.text(games.key(Object.keys(games).length - n).date);
+							leaderboardUpdate();
+							score.text(games.key(Object.keys(games).length - n + 1).home + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n + 1).home]) + ". " + games.key(Object.keys(games).length - n + 1).away + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n + 1).away]) + ".");
+							text.text(games.key(Object.keys(games).length - n + 1).gameline() + " - " + games.key(Object.keys(games).length - n + 1).gametype);
+							homewin.text(games.key(Object.keys(games).length - n + 1).home + " win");
+							awaywin.text(games.key(Object.keys(games).length - n + 1).away + " win");
+							homepens.text(games.key(Object.keys(games).length - n + 1).home + " (pens)");
+							awaypens.text(games.key(Object.keys(games).length - n + 1).away + " (pens)");
+							date.text(games.key(Object.keys(games).length - n + 1).date);
 							console.log(n);
 							n--;
 							console.log(n);
@@ -398,11 +431,18 @@
 				}
 			};
 		}
-	if (n === 0) {
-		console.log(games);
-	}
 	function leaderboardUpdate(){
-		
+		lb1.text(countries[0] + ": " + Math.round(fwrPoints["Mexico"]));
+		lb2.text(countries[1] + ": " + Math.round(fwrPoints["United States"]));
+		lb3.text(countries[2] + ": " + Math.round(fwrPoints["Costa Rica"]));
+		lb4.text(countries[3] + ": " + Math.round(fwrPoints["Jamaica"]));
+		lb5.text(countries[4] + ": " + Math.round(fwrPoints["Honduras"]));
+		lb6.text(countries[5] + ": " + Math.round(fwrPoints["El Salvador"]));
+		lb7.text(countries[6] + ": " + Math.round(fwrPoints["Panama"]));
+		lb8.text(countries[7] + ": " + Math.round(fwrPoints["Canada"]));
+		lb9.text(countries[8] + ": " + Math.round(fwrPoints["Curacao"]));
+		lb10.text(countries[9] + ": " + Math.round(fwrPoints["Haiti"]));
+		lb11.text(countries[10] + ": " + Math.round(fwrPoints["Trinidad and Tobago"]));
 	}
 	</script>
 </body>
