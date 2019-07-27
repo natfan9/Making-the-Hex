@@ -7,15 +7,19 @@ text.gameline, text.dateline, text.scores {
 	font-size: 15px;
 }
 
-/*text.team1, text.team2, text.team3, text.team4, text.team5, text.team6 {
+text.team1, text.team2, text.team3, text.team4, text.team5, text.team6 {
 	font-weight: bold;
-}*/
+}
 
 rect {
 	fill: lightgray;
 }
 
 rect:hover {
+	fill: darkgray;
+}
+
+rect:active {
 	fill: gray;
 }
 

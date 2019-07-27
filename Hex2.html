@@ -458,20 +458,7 @@
 			};
 		}
 	function leaderboardUpdate(){
-		lb1.text(countries[0] + ": " + Math.round(fwrPoints["Mexico"]));
-		lb2.text(countries[1] + ": " + Math.round(fwrPoints["United States"]));
-		lb3.text(countries[2] + ": " + Math.round(fwrPoints["Costa Rica"]));
-		lb4.text(countries[3] + ": " + Math.round(fwrPoints["Jamaica"]));
-		lb5.text(countries[4] + ": " + Math.round(fwrPoints["Honduras"]));
-		lb6.text(countries[5] + ": " + Math.round(fwrPoints["El Salvador"]));
-		lb7.text(countries[6] + ": " + Math.round(fwrPoints["Panama"]));
-		lb8.text(countries[7] + ": " + Math.round(fwrPoints["Canada"]));
-		lb9.text(countries[8] + ": " + Math.round(fwrPoints["Curacao"]));
-		lb10.text(countries[9] + ": " + Math.round(fwrPoints["Haiti"]));
-		lb11.text(countries[10] + ": " + Math.round(fwrPoints["Trinidad and Tobago"]));
-		
 		boardSorted = Object.keys(fwrPoints).sort(function(a,b){return fwrPoints[b]-fwrPoints[a]})
-			//.map(key => fwrPoints[key]);
 		while (topCountries.length < boardSorted.length) {	
 			for (h = 0; h < boardSorted.length; h++){
 				var countrycheck = topCountries.includes(boardSorted[h]);
@@ -486,6 +473,18 @@
 		//console.log(countrycheck);
 		//console.log(h);
 		console.log(boardSorted);
+		
+		lb1.text(boardSorted[0] + ": " + Math.round(fwrPoints[boardSorted[0]]));
+		lb2.text(boardSorted[1] + ": " + Math.round(fwrPoints[boardSorted[1]]));
+		lb3.text(boardSorted[2] + ": " + Math.round(fwrPoints[boardSorted[2]]));
+		lb4.text(boardSorted[3] + ": " + Math.round(fwrPoints[boardSorted[3]]));
+		lb5.text(boardSorted[4] + ": " + Math.round(fwrPoints[boardSorted[4]]));
+		lb6.text(boardSorted[5] + ": " + Math.round(fwrPoints[boardSorted[5]]));
+		lb7.text(boardSorted[6] + ": " + Math.round(fwrPoints[boardSorted[6]]));
+		lb8.text(boardSorted[7] + ": " + Math.round(fwrPoints[boardSorted[7]]));
+		lb9.text(boardSorted[8] + ": " + Math.round(fwrPoints[boardSorted[8]]));
+		lb10.text(boardSorted[9] + ": " + Math.round(fwrPoints[boardSorted[9]]));
+		lb11.text(boardSorted[10] + ": " + Math.round(fwrPoints[boardSorted[10]]));
 	}
 	</script>
 </body>
