@@ -48,8 +48,12 @@
 		</svg>
 	</svg>
 	<script>
+	//var leaderboardArray = [["Mexico",1604],["United States",1548],["Costa Rica",1445],["Jamaica",1425],["Honduras",1350],["El Salvador",1342]]
+		
 	var countries = ["Mexico","United States","Costa Rica","Jamaica","Honduras","El Salvador","Panama","Canada","Curacao","Haiti","Trinidad and Tobago","Antigua and Barbuda","Bermuda","Guyana","Dominican Republic","Cuba","Montserrat","Aruba","Saint Lucia","Uruguay","Argentina"];
 	
+	var topCountries = ["Mexico","United States","Costa Rica","Jamaica","Honduras","El Salvador","Panama","Canada","Curacao","Haiti","Trinidad and Tobago"];
+		
 	//Updated to reflect July 2019 rankings	
 	var fwrPoints = {
 		Mexico: 1604,
@@ -73,9 +77,9 @@
 		"Saint Lucia": 975,
 		Uruguay: 1637,
 		Argentina: 1610,
-		key: function(n) {
+		/**key: function(n) {
         	return this[Object.keys(this)[n]];
-    	}
+    	}**/
 	};
 		
 	var games = {
@@ -465,6 +469,23 @@
 		lb9.text(countries[8] + ": " + Math.round(fwrPoints["Curacao"]));
 		lb10.text(countries[9] + ": " + Math.round(fwrPoints["Haiti"]));
 		lb11.text(countries[10] + ": " + Math.round(fwrPoints["Trinidad and Tobago"]));
+		
+		boardSorted = Object.keys(fwrPoints).sort(function(a,b){return fwrPoints[b]-fwrPoints[a]})
+			//.map(key => fwrPoints[key]);
+		while (topCountries.length < boardSorted.length) {	
+			for (h = 0; h < boardSorted.length; h++){
+				var countrycheck = topCountries.includes(boardSorted[h]);
+				//console.log(countrycheck);
+				//console.log(h);
+				if (countrycheck == 0) {
+					boardSorted.splice(h,1);
+				}
+			}
+		}
+		console.log(topCountries);
+		//console.log(countrycheck);
+		//console.log(h);
+		console.log(boardSorted);
 	}
 	</script>
 </body>
