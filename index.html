@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Making the Hex: Concacaf World Cup Qualifying</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+	<svg width="960" height="500">
+		<text x="320" y="50" text-anchor="middle" class="gameline"></text>
+		<text x="320" y="350" text-anchor="middle" class="dateline"></text>
+		<text x="320" y="400" text-anchor="middle" class="scores"></text>
+		<svg class="buttons" x="0" y="100" width="640" height="200">
+			<rect class="teamawin" height="200" width="200" x="0" y="0" fill="gray" onmousedown="looper(1)"></rect>
+			<text class="buttonlabel teamawinlabel" x="100" y="100" text-anchor="middle" dominant-baseline="middle">United States win</text>
+			<rect class="teambwin" height="200" width="200" x="440" y="0" fill="gray" onmousedown="looper(2)"></rect>
+			<text class="buttonlabel teambwinlabel" x="540" y="100" text-anchor="middle" dominant-baseline="middle">Mexico win</text>
+			<rect class="draw" height="200" width="200" x="220" y="0" fill="gray" onmousedown="looper(3)"></rect>
+			<text class="buttonlabel drawlabel" x="320" y="100" text-anchor="middle" dominant-baseline="middle">Draw</text>
+		<!--<rect class="teamapso" height="40" width="200" x="0" y="160" fill="gray" onmousedown="looper(4)"></rect>
+			<text class="buttonlabel teamapsolabel" x="100" y="180" text-anchor="middle" dominant-baseline="middle">United States (pens)</text>
+			<rect class="teambpso" height="40" width="200" x="440" y="160" fill="gray" onmousedown="looper(5)"></rect>
+			<text class="buttonlabel teambpsolabel" x="540" y="180" text-anchor="middle" dominant-baseline="middle">Mexico (pens)</text>-->
+		</svg>
+		<svg class="leaderboard" x="700" y="0" width="260" height="500">
+			<text class="leaderboard team1" x="0" y="50">Mexico</text>
+			<text class="leaderboard team2" x="0" y="70">United States</text>
+			<text class="leaderboard team3" x="0" y="90">Costa Rica</text>
+			<text class="leaderboard team4" x="0" y="110">Jamaica</text>
+			<text class="leaderboard team5" x="0" y="130">Honduras</text>
+			<text class="leaderboard team6" x="0" y="150">El Salvador</text>
+			<text class="leaderboard team7" x="0" y="170">Panama</text>
+			<text class="leaderboard team8" x="0" y="190">Canada</text>
+			<text class="leaderboard team9" x="0" y="210">Curacao</text>
+			<text class="leaderboard team10" x="0" y="230">Trinidad and Tobago</text>
+			<text class="leaderboard team11" x="0" y="250">Haiti</text>
+		</svg>
+	</svg>
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
