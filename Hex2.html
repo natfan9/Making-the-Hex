@@ -216,6 +216,7 @@
 	var awaywin = d3.select("text.teambwinlabel");
 	var homepens = d3.select("text.teamapsolabel");
 	var awaypens = d3.select("text.teambpsolabel");
+	var draw = d3.select("text.drawlabel");
 	
 	homewin.text(games.key(0).home + " win");
 	awaywin.text(games.key(0).away + " win");
@@ -371,88 +372,143 @@
 			function looper(resultindex) {
 				switch (resultindex) {
 					case 1:
-						if (n > 0) {
+						if (n > 1) {
 							fwrPoints[games.key(Object.keys(games).length - n).away] = fwrPoints[games.key(Object.keys(games).length - n).away] + games.key(Object.keys(games).length - n).multiplier * (0 - (1/(Math.pow(10,-(fwrPoints[games.key(Object.keys(games).length - n).away]-fwrPoints[games.key(Object.keys(games).length - n).home])/600)+1)));
 							fwrPoints[games.key(Object.keys(games).length - n).home] = fwrPoints[games.key(Object.keys(games).length - n).home] + games.key(Object.keys(games).length - n).multiplier * (1 - (1/(Math.pow(10,-(fwrPoints[games.key(Object.keys(games).length - n).home]-fwrPoints[games.key(Object.keys(games).length - n).away])/600)+1)));
-							leaderboardUpdate();
-							score.text(games.key(Object.keys(games).length - n + 1).home + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n + 1).home]) + ". " + games.key(Object.keys(games).length - n + 1).away + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n + 1).away]) + ".");
-							text.text(games.key(Object.keys(games).length - n + 1).gameline() + " - " + games.key(Object.keys(games).length - n + 1).gametype);
-							homewin.text(games.key(Object.keys(games).length - n + 1).home + " win");
-							awaywin.text(games.key(Object.keys(games).length - n + 1).away + " win");
-							homepens.text(games.key(Object.keys(games).length - n + 1).home + " (pens)");
-							awaypens.text(games.key(Object.keys(games).length - n + 1).away + " (pens)");
-							date.text(games.key(Object.keys(games).length - n + 1).date);
 							console.log(n);
 							n--;
-							console.log(n);
+							leaderboardUpdate();
+							if (n > 1) {
+								score.text(games.key(Object.keys(games).length - n).home + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n).home]) + ". " + games.key(Object.keys(games).length - n).away + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n).away]) + ".");
+								text.text(games.key(Object.keys(games).length - n).gameline() + " - " + games.key(Object.keys(games).length - n).gametype);
+								homewin.text(games.key(Object.keys(games).length - n).home + " win");
+								awaywin.text(games.key(Object.keys(games).length - n).away + " win");
+								homepens.text(games.key(Object.keys(games).length - n).home + " (pens)");
+								awaypens.text(games.key(Object.keys(games).length - n).away + " (pens)");
+								date.text(games.key(Object.keys(games).length - n).date);
+								console.log(n);
+							} else {
+								score.text("");
+								text.text("");
+								date.text("");
+								homewin.text("");
+								awaywin.text("");
+								homepens.text("");
+								awaypens.text("");
+								draw.text("Finished!");
+							}
 						}
 						break;
 					case 2:
-						if (n > 0) {
+						if (n > 1) {
 							fwrPoints[games.key(Object.keys(games).length - n).away] = fwrPoints[games.key(Object.keys(games).length - n).away] + games.key(Object.keys(games).length - n).multiplier * (1 - (1/(Math.pow(10,-(fwrPoints[games.key(Object.keys(games).length - n).away]-fwrPoints[games.key(Object.keys(games).length - n).home])/600)+1)));
 							fwrPoints[games.key(Object.keys(games).length - n).home] = fwrPoints[games.key(Object.keys(games).length - n).home] + games.key(Object.keys(games).length - n).multiplier * (0 - (1/(Math.pow(10,-(fwrPoints[games.key(Object.keys(games).length - n).home]-fwrPoints[games.key(Object.keys(games).length - n).away])/600)+1)));
-							leaderboardUpdate();
-							score.text(games.key(Object.keys(games).length - n + 1).home + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n + 1).home]) + ". " + games.key(Object.keys(games).length - n + 1).away + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n + 1).away]) + ".");
-							text.text(games.key(Object.keys(games).length - n + 1).gameline() + " - " + games.key(Object.keys(games).length - n + 1).gametype);
-							homewin.text(games.key(Object.keys(games).length - n + 1).home + " win");
-							awaywin.text(games.key(Object.keys(games).length - n + 1).away + " win");
-							homepens.text(games.key(Object.keys(games).length - n + 1).home + " (pens)");
-							awaypens.text(games.key(Object.keys(games).length - n + 1).away + " (pens)");
-							date.text(games.key(Object.keys(games).length - n + 1).date);
 							console.log(n);
 							n--;
-							console.log(n);
+							leaderboardUpdate();
+							if (n > 1) {
+								score.text(games.key(Object.keys(games).length - n).home + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n).home]) + ". " + games.key(Object.keys(games).length - n).away + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n).away]) + ".");
+								text.text(games.key(Object.keys(games).length - n).gameline() + " - " + games.key(Object.keys(games).length - n).gametype);
+								homewin.text(games.key(Object.keys(games).length - n).home + " win");
+								awaywin.text(games.key(Object.keys(games).length - n).away + " win");
+								homepens.text(games.key(Object.keys(games).length - n).home + " (pens)");
+								awaypens.text(games.key(Object.keys(games).length - n).away + " (pens)");
+								date.text(games.key(Object.keys(games).length - n).date);
+								console.log(n);
+							} else {
+								score.text("");
+								text.text("");
+								date.text("");
+								homewin.text("");
+								awaywin.text("");
+								homepens.text("");
+								awaypens.text("");
+								draw.text("Finished!");
+							}
 						}
 						break;
 					case 3:
-						if (n > 0) {
+						if (n > 1) {
 							fwrPoints[games.key(Object.keys(games).length - n).away] = fwrPoints[games.key(Object.keys(games).length - n).away] + games.key(Object.keys(games).length - n).multiplier * (0.5 - (1/(Math.pow(10,-(fwrPoints[games.key(Object.keys(games).length - n).away]-fwrPoints[games.key(Object.keys(games).length - n).home])/600)+1)));
 							fwrPoints[games.key(Object.keys(games).length - n).home] = fwrPoints[games.key(Object.keys(games).length - n).home] + games.key(Object.keys(games).length - n).multiplier * (0.5 - (1/(Math.pow(10,-(fwrPoints[games.key(Object.keys(games).length - n).home]-fwrPoints[games.key(Object.keys(games).length - n).away])/600)+1)));
-							leaderboardUpdate();
-							score.text(games.key(Object.keys(games).length - n + 1).home + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n + 1).home]) + ". " + games.key(Object.keys(games).length - n + 1).away + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n + 1).away]) + ".");
-							text.text(games.key(Object.keys(games).length - n + 1).gameline() + " - " + games.key(Object.keys(games).length - n + 1).gametype);
-							homewin.text(games.key(Object.keys(games).length - n + 1).home + " win");
-							awaywin.text(games.key(Object.keys(games).length - n + 1).away + " win");
-							homepens.text(games.key(Object.keys(games).length - n + 1).home + " (pens)");
-							awaypens.text(games.key(Object.keys(games).length - n + 1).away + " (pens)");
-							date.text(games.key(Object.keys(games).length - n + 1).date);
 							console.log(n);
 							n--;
-							console.log(n);
+							leaderboardUpdate();
+							if (n > 1) {
+								score.text(games.key(Object.keys(games).length - n).home + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n).home]) + ". " + games.key(Object.keys(games).length - n).away + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n).away]) + ".");
+								text.text(games.key(Object.keys(games).length - n).gameline() + " - " + games.key(Object.keys(games).length - n).gametype);
+								homewin.text(games.key(Object.keys(games).length - n).home + " win");
+								awaywin.text(games.key(Object.keys(games).length - n).away + " win");
+								homepens.text(games.key(Object.keys(games).length - n).home + " (pens)");
+								awaypens.text(games.key(Object.keys(games).length - n).away + " (pens)");
+								date.text(games.key(Object.keys(games).length - n).date);
+								console.log(n);
+							} else {
+								score.text("");
+								text.text("");
+								date.text("");
+								homewin.text("");
+								awaywin.text("");
+								homepens.text("");
+								awaypens.text("");
+								draw.text("Finished!");
+							}
 						}
 						break;
 					case 4:
-						if (n > 0) {
+						if (n > 1) {
 							fwrPoints[games.key(Object.keys(games).length - n).away] = fwrPoints[games.key(Object.keys(games).length - n).away] + games.key(Object.keys(games).length - n).multiplier * (0.5 - (1/(Math.pow(10,-(fwrPoints[games.key(Object.keys(games).length - n).away]-fwrPoints[games.key(Object.keys(games).length - n).home])/600)+1)));
 							fwrPoints[games.key(Object.keys(games).length - n).home] = fwrPoints[games.key(Object.keys(games).length - n).home] + games.key(Object.keys(games).length - n).multiplier * (0.75 - (1/(Math.pow(10,-(fwrPoints[games.key(Object.keys(games).length - n).home]-fwrPoints[games.key(Object.keys(games).length - n).away])/600)+1)));
-							leaderboardUpdate();
-							score.text(games.key(Object.keys(games).length - n + 1).home + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n + 1).home]) + ". " + games.key(Object.keys(games).length - n + 1).away + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n + 1).away]) + ".");
-							text.text(games.key(Object.keys(games).length - n + 1).gameline() + " - " + games.key(Object.keys(games).length - n + 1).gametype);
-							homewin.text(games.key(Object.keys(games).length - n + 1).home + " win");
-							awaywin.text(games.key(Object.keys(games).length - n + 1).away + " win");
-							homepens.text(games.key(Object.keys(games).length - n + 1).home + " (pens)");
-							awaypens.text(games.key(Object.keys(games).length - n + 1).away + " (pens)");
-							date.text(games.key(Object.keys(games).length - n + 1).date);
 							console.log(n);
 							n--;
-							console.log(n);
+							leaderboardUpdate();
+							if (n > 1) {
+								score.text(games.key(Object.keys(games).length - n).home + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n).home]) + ". " + games.key(Object.keys(games).length - n).away + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n).away]) + ".");
+								text.text(games.key(Object.keys(games).length - n).gameline() + " - " + games.key(Object.keys(games).length - n).gametype);
+								homewin.text(games.key(Object.keys(games).length - n).home + " win");
+								awaywin.text(games.key(Object.keys(games).length - n).away + " win");
+								homepens.text(games.key(Object.keys(games).length - n).home + " (pens)");
+								awaypens.text(games.key(Object.keys(games).length - n).away + " (pens)");
+								date.text(games.key(Object.keys(games).length - n).date);
+								console.log(n);
+							} else {
+								score.text("");
+								text.text("");
+								date.text("");
+								homewin.text("");
+								awaywin.text("");
+								homepens.text("");
+								awaypens.text("");
+								draw.text("Finished!");
+							}
 						}
 						break;
 					case 5:
-						if (n > 0) {
+						if (n > 1) {
 							fwrPoints[games.key(Object.keys(games).length - n).away] = fwrPoints[games.key(Object.keys(games).length - n).away] + games.key(Object.keys(games).length - n).multiplier * (0.75 - (1/(Math.pow(10,-(fwrPoints[games.key(Object.keys(games).length - n).away]-fwrPoints[games.key(Object.keys(games).length - n).home])/600)+1)));
 							fwrPoints[games.key(Object.keys(games).length - n).home] = fwrPoints[games.key(Object.keys(games).length - n).home] + games.key(Object.keys(games).length - n).multiplier * (0.5 - (1/(Math.pow(10,-(fwrPoints[games.key(Object.keys(games).length - n).home]-fwrPoints[games.key(Object.keys(games).length - n).away])/600)+1)));
-							leaderboardUpdate();
-							score.text(games.key(Object.keys(games).length - n + 1).home + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n + 1).home]) + ". " + games.key(Object.keys(games).length - n + 1).away + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n + 1).away]) + ".");
-							text.text(games.key(Object.keys(games).length - n + 1).gameline() + " - " + games.key(Object.keys(games).length - n + 1).gametype);
-							homewin.text(games.key(Object.keys(games).length - n + 1).home + " win");
-							awaywin.text(games.key(Object.keys(games).length - n + 1).away + " win");
-							homepens.text(games.key(Object.keys(games).length - n + 1).home + " (pens)");
-							awaypens.text(games.key(Object.keys(games).length - n + 1).away + " (pens)");
-							date.text(games.key(Object.keys(games).length - n + 1).date);
 							console.log(n);
 							n--;
-							console.log(n);
+							leaderboardUpdate();
+							if (n > 1) {
+								score.text(games.key(Object.keys(games).length - n).home + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n).home]) + ". " + games.key(Object.keys(games).length - n).away + "'s score is " + Math.round(fwrPoints[games.key(Object.keys(games).length - n).away]) + ".");
+								text.text(games.key(Object.keys(games).length - n).gameline() + " - " + games.key(Object.keys(games).length - n).gametype);
+								homewin.text(games.key(Object.keys(games).length - n).home + " win");
+								awaywin.text(games.key(Object.keys(games).length - n).away + " win");
+								homepens.text(games.key(Object.keys(games).length - n).home + " (pens)");
+								awaypens.text(games.key(Object.keys(games).length - n).away + " (pens)");
+								date.text(games.key(Object.keys(games).length - n).date);
+								console.log(n);
+							} else {
+								score.text("");
+								text.text("");
+								date.text("");
+								homewin.text("");
+								awaywin.text("");
+								homepens.text("");
+								awaypens.text("");
+								draw.text("Finished!");
+							}
 						}
 				}
 			};
