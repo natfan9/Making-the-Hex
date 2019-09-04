@@ -7,6 +7,12 @@ text.gameline, text.dateline, text.scores {
 	font-size: 15px;
 }
 
+text.update {
+	font-style: italic;
+	font-family:  Arial, Helvetica, sans-serif;
+	font-size: 15px;
+}
+
 text.team1, text.team2, text.team3, text.team4, text.team5, text.team6 {
 	font-weight: bold;
 }
