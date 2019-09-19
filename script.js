@@ -1,6 +1,4 @@
-var countries = ["Mexico","United States","Costa Rica","Jamaica","Honduras","El Salvador","Panama","Canada","Curacao","Haiti","Trinidad and Tobago","Antigua and Barbuda","Bermuda","Guyana","Dominican Republic","Cuba","Montserrat","Aruba","Saint Lucia","Uruguay","Argentina"];
-
-var topCountries = ["Mexico","United States","Costa Rica","Jamaica","Honduras","El Salvador","Panama","Canada","Curacao","Haiti"];
+var topCountries = ["Mexico","United States","Costa Rica","Jamaica","Honduras","El Salvador","Canada","Curacao","Panama","Haiti"];
 
 //Updated to reflect September 2019 rankings	
 var fwrPoints = {
@@ -127,17 +125,17 @@ var lb9 = d3.select("text.team9");
 var lb10 = d3.select("text.team10");
 var lb11 = d3.select("text.team11");
 
-lb1.text(countries[0] + ": " + Math.round(fwrPoints["Mexico"]));
-lb2.text(countries[1] + ": " + Math.round(fwrPoints["United States"]));
-lb3.text(countries[2] + ": " + Math.round(fwrPoints["Costa Rica"]));
-lb4.text(countries[3] + ": " + Math.round(fwrPoints["Jamaica"]));
-lb5.text(countries[4] + ": " + Math.round(fwrPoints["Honduras"]));
-lb6.text(countries[5] + ": " + Math.round(fwrPoints["El Salvador"]));
-lb7.text(countries[6] + ": " + Math.round(fwrPoints["Panama"]));
-lb8.text(countries[7] + ": " + Math.round(fwrPoints["Canada"]));
-lb9.text(countries[8] + ": " + Math.round(fwrPoints["Curacao"]));
-lb10.text(countries[9] + ": " + Math.round(fwrPoints["Haiti"]));
-lb11.text(countries[10] + ": " + Math.round(fwrPoints["Trinidad and Tobago"]));
+lb1.text(topCountries[0] + ": " + Math.round(fwrPoints["Mexico"]));
+lb2.text(topCountries[1] + ": " + Math.round(fwrPoints["United States"]));
+lb3.text(topCountries[2] + ": " + Math.round(fwrPoints["Costa Rica"]));
+lb4.text(topCountries[3] + ": " + Math.round(fwrPoints["Jamaica"]));
+lb5.text(topCountries[4] + ": " + Math.round(fwrPoints["Honduras"]));
+lb6.text(topCountries[5] + ": " + Math.round(fwrPoints["El Salvador"]));
+lb7.text(topCountries[6] + ": " + Math.round(fwrPoints["Canada"]));
+lb8.text(topCountries[7] + ": " + Math.round(fwrPoints["Curacao"]));
+lb9.text(topCountries[8] + ": " + Math.round(fwrPoints["Panama"]));
+lb10.text(topCountries[9] + ": " + Math.round(fwrPoints["Haiti"]));
+lb11.text(topCountries[10] + ": " + Math.round(fwrPoints["Trinidad and Tobago"]));
 
 var n = Object.keys(games).length;
 if (n === 5) {
