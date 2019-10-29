@@ -1,4 +1,4 @@
-var topCountries = ["Mexico","United States","Costa Rica","Jamaica","Honduras","El Salvador","Canada","Curacao","Panama","Haiti"];
+var topCountries = ["Mexico","United States","Jamaica","Costa Rica","Honduras","Canada","El Salvador","Curacao","Panama","Haiti"];
 
 //Updated to reflect October 2019 rankings	
 var fwrPoints = {
@@ -129,11 +129,11 @@ var lb11 = d3.select("text.team11");
 
 lb1.text(topCountries[0] + ": " + Math.round(fwrPoints["Mexico"]));
 lb2.text(topCountries[1] + ": " + Math.round(fwrPoints["United States"]));
-lb3.text(topCountries[2] + ": " + Math.round(fwrPoints["Costa Rica"]));
-lb4.text(topCountries[3] + ": " + Math.round(fwrPoints["Jamaica"]));
+lb3.text(topCountries[2] + ": " + Math.round(fwrPoints["Jamaica"]));
+lb4.text(topCountries[3] + ": " + Math.round(fwrPoints["Costa Rica"]));
 lb5.text(topCountries[4] + ": " + Math.round(fwrPoints["Honduras"]));
-lb6.text(topCountries[5] + ": " + Math.round(fwrPoints["El Salvador"]));
-lb7.text(topCountries[6] + ": " + Math.round(fwrPoints["Canada"]));
+lb6.text(topCountries[5] + ": " + Math.round(fwrPoints["Canada"]));
+lb7.text(topCountries[6] + ": " + Math.round(fwrPoints["El Salvador"]));
 lb8.text(topCountries[7] + ": " + Math.round(fwrPoints["Curacao"]));
 lb9.text(topCountries[8] + ": " + Math.round(fwrPoints["Panama"]));
 lb10.text(topCountries[9] + ": " + Math.round(fwrPoints["Haiti"]));
